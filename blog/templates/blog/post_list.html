@@ -1,21 +1,13 @@
-<html>
-    <head>
-        <title>Chase's blog</title>
-    </head>
-    <body>
-        <h2>Chase's blog</h2>
-        <p>Thanks for stopping in. This is my proto-blog using the Django web framework. I think I may end up using it as a hub for some of my projects, but we will see how it goes. </p>
-		
-		<p>I am following the <a href = 'http://tutorial.djangogirls.org/en/index.html'>Django Girls tutorial</a>, with the intent of making a fully functioning blog that will be a sandbox for my practice with HTML/CSS, Javascript, JQuery, Bootstrap, and maybe even some Sass or other front-end or back-end technologies.</p>
-		
-		<p>Here are some of my test posts.</p>
+{% extends 'blog/base.html' %}
 
-		{% for post in posts %}
-			<div>
-				<p>published: {{post.published_date}}</p>
-				<h1><a href="">{{post.title}}</a></h1>
-				<p>{{post.text|linebreaks}}</p>
-			</div>
-		{% endfor %}
-    </body>
-</html>
+{% block content %}
+	{% for post in posts %}
+	    <div class="post">
+	        <div class="date">
+	            <p>published: {{ post.published_date }}</p>
+	        </div>
+	        <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+	        <p>{{ post.text|linebreaks }}</p>
+	    </div>
+	{% endfor %}
+{% endblock %}
