@@ -7,8 +7,12 @@
 		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 		<link rel="stylesheet" href="{% static 'css/blog.css' %}">
 		<link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
     </head>
    <body>
+
 	   	<div class="page-header">
 	   		{% if user.is_authenticated %}
 	   			<a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
@@ -20,6 +24,14 @@
 	            <div class="col-md-8">
 	            {% block content %}
 	            {% endblock %}
+	            </div>
+	            <div class="col-md-4">
+	            	<h2>Contact Me </h2>
+
+	            	<a href='https://www.linkedin.com/in/chaseladner'><i class="fa fa-linkedin-square fa-3x"></i></a>
+	            	<a href=https://github.com/chaseladner><i class="fa fa-github fa-3x"></i></a>
+	            	<a href="{% static "image/Resume-Web.pdf" %}"><i class="fa fa-file-pdf-o fa-3x"></i></a>
+
 	            </div>
 	        </div>
 	    </div>
